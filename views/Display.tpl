@@ -29,7 +29,7 @@
 </head>
 <body>
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-    % include('templates\Header.html')
+    % include('templates/Header.html')
 <br><br>
 <table id="table" class="stripe" cellspacing="0"  width="99%">
 

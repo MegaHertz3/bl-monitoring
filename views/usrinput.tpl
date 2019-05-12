@@ -116,7 +116,7 @@ $( document ).ready(function() {
 </script>
 </head>
 <body>
-    % include('templates\Header.html')
+    % include('templates/Header.html')
 <div class="container">
     <form method="post" action="/input">
         <br>

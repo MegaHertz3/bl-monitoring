@@ -3,7 +3,7 @@ import json
 
 inventory = {}
 
-conn = sqlite3.connect('C:\\Users\\v-red01\\Documents\\SQLite\\BrickLaneFacilities.db')
+conn = sqlite3.connect('./BrickLaneFacilities.db')
 c = conn.cursor()
 for row in c.execute('''
 select managementarea.name, types.name, floors.name, thing.name, thing.id, location.name from Thing 
@@ -26,7 +26,7 @@ left join managementarea on thing.management = managementarea.id'''):
 
 def GetData():
     table = []
-    conn = sqlite3.connect('C:\\Users\\v-red01\\Documents\\SQLite\\BrickLaneFacilities.db')
+    conn = sqlite3.connect('./BrickLaneFacilities.db')
     c = conn.cursor()
 
     table.append('<thead>')
@@ -40,10 +40,10 @@ def GetData():
 
     table.append('<tbody>')
     for row in c.execute('''
-select Thing.Name, Floors.Name, Status.Name, ThingStatus.Comment from ThingStatus
-left join Thing on ThingStatus.Thing = Thing.ID
-left join Status on ThingStatus.status = Status.ID
-left join Floors on Thing.Floors = Floors.Name'''):
+        select Thing.Name, Floors.Name, Status.Name, ThingStatus.Comment from ThingStatus
+        left join Thing on ThingStatus.Thing = Thing.ID
+        left join Status on ThingStatus.status = Status.ID
+        left join Floors on Thing.Floors = Floors.Name'''):
         table.append('<tr>')
         for i in range(len(row)):
             table.append('<td>%s</td>' %(row[i]))
